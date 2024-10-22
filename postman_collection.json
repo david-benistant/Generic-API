@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "dc87264b-796d-4b2a-9f8c-2d3596cd099b",
+		"name": "generic-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28760067",
+		"_collection_link": "https://restless-meadow-739821.postman.co/workspace/Team-Workspace~80ac31e9-8d85-4611-8112-f2fa75153a0b/collection/28760067-dc87264b-796d-4b2a-9f8c-2d3596cd099b?action=share&source=collection_link&creator=28760067"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test@email.com\",\n    \"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test2@email.com\",\n    \"password\" : \"password\",\n    \"adminToken\" : \"OAyqXOlc7x8jT9P5sOKw3yLE#Ftt#ZKe7Q2dFAOJAN71O!ZlRxBE%oFht%8ocD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generic",
+			"item": [
+				{
+					"name": "Create generic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"test\",\n    \"metadata\" : {\n        \"test\" : \"oui\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/generic",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List generic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/generic",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search generic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/generic/search?search=o",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "o"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get generic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/generic/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e245df1c-0ddd-442a-9a22-9ce8558b0fa7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update generic",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"updated\",\n    \"metadata\" : {\n        \"test\" : \"oui\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/generic/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6ee7f74a-17ed-4044-a62a-847e5ae46193"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete generic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/generic/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"generic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7b9dcba3-4d70-4d84-a7fa-93cbf1ecdfdb"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Put file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGVtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjQtMTAtMjFUMjA6MTA6NDMuMzM2WiIsInVwZGF0ZWRBdCI6IjIwMjQtMTAtMjFUMjA6MTA6NDMuMzM2WiIsImlhdCI6MTcyOTU0MjA4N30.ODXAYpxlGcGliH0kRuAhVm61f2FYRbgn7uXLAgknfag",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fileName\" : \"test.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/file",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"file"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/file/:fileKey",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"file",
+								":fileKey"
+							],
+							"variable": [
+								{
+									"key": "fileKey",
+									"value": "MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/file/:fileKey/download",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"file",
+								":fileKey",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "fileKey",
+									"value": "MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/file/:fileKey",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"file",
+								":fileKey"
+							],
+							"variable": [
+								{
+									"key": "fileKey",
+									"value": "MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

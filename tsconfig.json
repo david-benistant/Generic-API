@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+      "lib": ["ESNext"],
+      "moduleResolution": "node",
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": true,
+      "sourceMap": true,
+      "target": "ES2020",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true,
+      "types": ["node"],
+      "baseUrl": ".",
+      "paths": {
+        "@libs/*": ["app/src/libs/*"],
+        "@middlwares/*": ["app/src/middlwares/*"],
+        "@repositories/*": ["app/src/repositories/*"],
+        "@routes/*": ["app/src/routes/*"],
+        "@services/*": ["app/src/services/*"],
+        "@entities/*": ["app/src/entities/*"],
+        "@resources/*": ["app/resources/*"],
+        "@enums/*": ["app/src/enums/*"],
+      },
+      "strictNullChecks": true
+    },
+    "ts-node": {
+      "require": ["tsconfig-paths/register"]
+    }
+  }
+  

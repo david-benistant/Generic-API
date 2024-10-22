@@ -1,0 +1,224 @@
+openapi: 3.0.0
+info:
+  title: generic-api
+  version: 1.0.0
+servers:
+  - url: http://{{api_url}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Auth
+  - name: Generic
+  - name: Files
+paths:
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: test@email.com
+                password: password
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: test2@email.com
+                password: password
+                adminToken: OAyqXOlc7x8jT9P5sOKw3yLE#Ftt#ZKe7Q2dFAOJAN71O!ZlRxBE%oFht%8ocD
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /generic:
+    post:
+      tags:
+        - Generic
+      summary: Create generic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: test
+                metadata:
+                  test: oui
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Generic
+      summary: List generic
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /generic/search:
+    get:
+      tags:
+        - Generic
+      summary: Search generic
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: o
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /generic/{id}:
+    get:
+      tags:
+        - Generic
+      summary: Get generic
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: e245df1c-0ddd-442a-9a22-9ce8558b0fa7
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - Generic
+      summary: Update generic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: updated
+                metadata:
+                  test: oui
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 6ee7f74a-17ed-4044-a62a-847e5ae46193
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Generic
+      summary: Delete generic
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 7b9dcba3-4d70-4d84-a7fa-93cbf1ecdfdb
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /file:
+    post:
+      tags:
+        - Files
+      summary: Put file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fileName: test.txt
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /file/{fileKey}:
+    get:
+      tags:
+        - Files
+      summary: Get file
+      parameters:
+        - name: fileKey
+          in: path
+          schema:
+            type: string
+          required: true
+          example: MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Files
+      summary: Delete file
+      parameters:
+        - name: fileKey
+          in: path
+          schema:
+            type: string
+          required: true
+          example: MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /file/{fileKey}/download:
+    get:
+      tags:
+        - Files
+      summary: Download file
+      parameters:
+        - name: fileKey
+          in: path
+          schema:
+            type: string
+          required: true
+          example: MjhkNWUxMWYtMzcwZi00MTJkLTgwMjItNWNhNDJkZjkzYjNiL3Rlc3QudHh0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

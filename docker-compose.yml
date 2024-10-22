@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    image: generic-api
+    volumes:
+      - ./app:/app/app
+    env_file:
+      - .env
+    restart: no
